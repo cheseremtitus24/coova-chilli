@@ -11,6 +11,7 @@ UNDO_FILE=@VARRUN@/chilli.$TUNTAP.sh
 run_down() {
     [ -e "$UNDO_FILE" ] && sh $UNDO_FILE 2>/dev/null
     rm -f $UNDO_FILE 2>/dev/null
+    /usr/sbin/iptables --flush
     
     # site specific stuff optional
     [ -e @SYSCONFDIR@/chilli/ipdown.sh ] && . @SYSCONFDIR@/chilli/ipdown.sh
