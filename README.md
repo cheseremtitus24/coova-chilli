@@ -17,6 +17,8 @@ To get started after cloning git repository:
   
   `make`
 
+Debian Install Please use [Debian Build & Install](https://gist.github.com/cheseremtitus24/33d4c891be3e7ba4a7c58701156fda2f)
+
 More details about the build process and dependencies are covered in the [INSTALL file](/INSTALL)
 
 [![Github Actions Build Status](https://github.com/coova/coova-chilli/actions/workflows/actions.yml/badge.svg)](https://github.com/coova/coova-chilli/actions/workflows/actions.yml)
