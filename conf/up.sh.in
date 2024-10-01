@@ -29,6 +29,7 @@ run_up() {
 	    ipt -I FORWARD -i $TUNTAP -j ACCEPT
 	    ipt -I FORWARD -o $TUNTAP -j ACCEPT
 	    [ -n "$DHCPLISTEN" ] && ifconfig $DHCPIF $DHCPLISTEN
+            ipt -t nat -A POSTROUTING -o $HS_WANIF -j MASQUERADE
 	else
 	    if [ "$LAYER3" != "1" ]
 	    then
@@ -56,6 +57,7 @@ run_up() {
 		ipt_in -p udp -d $ADDR --destination-port 67:68 -j ACCEPT
 		ipt_in -p udp --dst $ADDR --dport 53 -j ACCEPT
 		ipt_in -p icmp --dst $ADDR -j ACCEPT
+  		ipt -t nat -A POSTROUTING -o $HS_WANIF -j MASQUERADE
 		
 		if [ "$ONLY8021Q" != "1" ]
 		then
